@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My High School Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Quicksand Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom pastel colors for a cozy feel */
+        :root {
+            --pastel-blue: #B3E0F2; /* Light Blue */
+            --pastel-green: #D4F4DD; /* Mint Green */
+            --pastel-pink: #F8DDE4; /* Pale Pink */
+            --pastel-yellow: #FFFACD; /* Lemon Chiffon (body background) */
+            --pastel-purple: #E0CEF2; /* Lavender */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #FDFDFD; /* Still available but less used as main body bg */
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--pastel-yellow); /* Fixed body background */
+            color: var(--text-dark);
+            line-height: 1.6;
+            /* Removed transition as background is no longer dynamically changing */
+        }
+
+        .section-card {
+            background-color: white; /* Cards remain white for content clarity */
+            padding: 1.5rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+            margin-bottom: 2rem;
+        }
+
+        .header-bg {
+            background-color: var(--pastel-blue);
+        }
+
+        .nav-item {
+            cursor: pointer; /* Indicate clickable */
+        }
+
+        .nav-item:hover {
+            color: var(--pastel-purple);
+            text-decoration: underline;
+        }
+
+        .category-heading {
+            color: var(--text-dark); /* Changed from --pastel-purple to --text-dark (black) */
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Specific pastel backgrounds for sections */
+        #performing-arts-section {
+            background-color: var(--pastel-pink);
+        }
+        #sports-section {
+            background-color: var(--pastel-green);
+        }
+        #academics-section {
+            background-color: var(--pastel-purple);
+        }
+
+        /* Adjust padding for sections for a cozy feel */
+        .content-section {
+            padding: 4rem 1rem; /* Increased vertical padding */
+            transition: opacity 0.5s ease-in-out; /* Fade transition for sections */
+            /* Initially hidden by default unless it's the active one via JS */
+            display: none;
+            opacity: 0;
+            border-radius: 0.75rem; /* Added rounded corners to main sections */
+        }
+
+        .content-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .content-section {
+                padding: 6rem 2rem; /* More padding on larger screens */
+            }
+            .section-card {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-yellow-200 selection:text-gray-800">
+    <!-- Header Section -->
+    <header class="header-bg py-6 shadow-md">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-white text-3xl font-bold mb-4 md:mb-0">My High School Journey</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center gap-x-6 text-lg">
+                    <li><a href="#home" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="introduction-section">Home</a></li>
+                    <li><a href="#performing-arts" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="performing-arts-section">Performing Arts</a></li>
+                    <li><a href="#sports" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="sports-section">Sports</a></li>
+                    <li><a href="#academics" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="academics-section">Academics</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container for Dynamic Sections -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction-section" class="bg-white section-card text-center mb-12 content-section active">
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-6">Welcome, Teachers!</h2>
+            <p class="text-xl text-gray-700 mb-4">
+                This portfolio is designed to give you a comprehensive overview of my activities, achievements, and passions throughout my high school years. I hope it helps you in writing insightful and personalized Letters of Recommendation for my college applications.
+            </p>
+            <p class="text-lg text-gray-600">
+                Please feel free to explore the different sections using the navigation bar above. Thank you for your support and guidance!
+            </p>
+        </section>
+
+        <!-- Performing Arts Section -->
+        <section id="performing-arts-section" class="rounded-lg shadow-xl py-12 content-section">
+            <div class="container mx-auto px-4">
+                <h2 class="category-heading">Performing Arts</h2>
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Drama Club: Lead Roles & Stage Management</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> Lead Actor, "Romeo" in *Romeo and Juliet* (Junior Year); Stage Manager, "A Midsummer Night's Dream" (Sophmore Year).
+                    </p>
+                    <p class="text-700 mb-4">
+                        <strong>Description:</strong> Actively participated in the Drama Club for four years. As Romeo, I honed my acting skills and public speaking. As Stage Manager, I developed strong organizational and leadership abilities, coordinating set design, lighting, and sound for smooth performances. My commitment led to significant improvements in our club's production quality.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Awarded "Best Actor" by the school's faculty (Junior Year).</li>
+                        <li>Successfully managed a team of 15 students for the Spring Play.</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 italic">
+                        "Your performance as Romeo truly captivated the audience, demonstrating remarkable emotional depth and stage presence." - Ms. Davis, Drama Teacher.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">School Choir: Soloist & Section Leader</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> Tenor Soloist, Section Leader (Senior Year).
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Description:</strong> A proud member of the school choir for all four years. I regularly performed solos at school concerts and community events. As a section leader, I was responsible for guiding and mentoring younger choir members, fostering a collaborative and harmonious environment.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Performed at the Annual District Choral Festival (2023, 2024).</li>
+                        <li>Organized and led weekly practice sessions for the Tenor section.</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 italic">
+                        "Your dedication to the choir and your leadership qualities have been an inspiration to your peers." - Mr. Chen, Choir Director.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sports Section -->
+        <section id="sports-section" class="rounded-lg shadow-xl py-12 content-section">
+            <div class="container mx-auto px-4">
+                <h2 class="category-heading">Sports</h2>
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Varsity Basketball: Team Captain</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> Point Guard, Team Captain (Junior & Senior Year).
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Description:</strong> Played on the Varsity Basketball team for three years, serving as captain for the last two. As captain, I was instrumental in coordinating team strategies, motivating teammates, and maintaining strong communication with the coaching staff. I pride myself on my leadership both on and off the court, emphasizing teamwork and sportsmanship.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Led the team to District Championship semifinals (Senior Year).</li>
+                        <li>Awarded "Most Valuable Player" (Junior Year).</li>
+                        <li>Maintained an average of 15 points and 7 assists per game (Senior Year).</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 italic">
+                        "A natural leader and exceptional player, [Your Name] consistently elevated the performance of the entire team." - Coach Thompson, Basketball Coach.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Track and Field: Long Jump & Hurdles</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Events:</strong> Long Jump, 110m Hurdles (Freshman & Sophomore Year).
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Description:</strong> Competed in Track and Field, specializing in long jump and hurdles. This experience taught me discipline, perseverance, and the importance of consistent practice to achieve personal bests.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Placed 3rd in Long Jump at the Regional Meet (Sophomore Year).</li>
+                        <li>Improved personal best in 110m Hurdles by 2 seconds over two seasons.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academics Section -->
+        <section id="academics-section" class="rounded-lg shadow-xl py-12 content-section">
+            <div class="container mx-auto px-4">
+                <h2 class="category-heading">Academics</h2>
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Advanced Placement (AP) Courses</h3>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Courses:</strong> AP Calculus BC, AP Physics C, AP Computer Science A, AP English Literature, AP U.S. History.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Description:</strong> Challenged myself with a rigorous academic curriculum, taking multiple AP courses. This has allowed me to develop strong analytical thinking, problem-solving skills, and a deep understanding of complex subjects. I consistently scored 4s and 5s on my AP exams.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Scored a 5 on AP Calculus BC and AP Computer Science A.</li>
+                        <li>Achieved a 4 on AP Physics C and AP English Literature.</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 italic">
+                        "Your engagement in class discussions and your insightful questions truly demonstrate a passion for learning." - Ms. Patel, AP Calculus Teacher.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Science Fair: Robotics Project</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Project:</strong> "Automated Waste Sorting Robot" (Senior Year).
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Description:</strong> Designed and built a prototype robot capable of autonomously sorting different types of waste materials using sensors and machine learning algorithms. This project allowed me to apply theoretical knowledge from my computer science and physics classes to a practical, real-world problem.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Awarded 1st Place at the School Science Fair.</li>
+                        <li>Presented the project at the Regional Robotics Competition.</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 italic">
+                        "An incredibly innovative and well-executed project. Your problem-solving approach and technical skills are exceptional." - Mr. Lee, Science Department Head.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">National Honor Society (NHS)</h3>
+                    <p class="text-gray-700 mb-2">
+                        <strong>Role:</strong> Member (Junior & Senior Year).
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <strong>Description:</strong> Inducted into the National Honor Society based on scholarship, leadership, service, and character. Actively participated in various community service initiatives and tutored underclassmen in math and science.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                        <li>Volunteered 50+ hours in community clean-up projects.</li>
+                        <li>Provided 30+ hours of peer tutoring.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+            <p class="text-sm mt-2">
+                Designed to assist with Letters of Recommendation.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.content-section');
+            // Removed the mainBody reference and dynamic background color change
+
+            // Map navigation hash to section ID
+            const sectionMap = {
+                '#home': 'introduction-section',
+                '#performing-arts': 'performing-arts-section',
+                '#sports': 'sports-section',
+                '#academics': 'academics-section'
+            };
+
+            // Function to show a specific section
+            function showSection(sectionId) {
+                // Hide all sections first
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    // Removed dynamic body background color update here
+                }
+            }
+
+            // Event listeners for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default anchor link behavior
+                    const targetSectionId = link.getAttribute('data-target');
+                    if (targetSectionId) {
+                        history.pushState(null, '', link.getAttribute('href')); // Update URL hash
+                        showSection(targetSectionId);
+                    }
+                });
+            });
+
+            // Handle initial load based on URL hash
+            const initialHash = window.location.hash || '#home';
+            const initialSectionId = sectionMap[initialHash] || 'introduction-section';
+            showSection(initialSectionId);
+
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', () => {
+                const currentHash = window.location.hash || '#home';
+                const currentSectionId = sectionMap[currentHash] || 'introduction-section';
+                showSection(currentSectionId);
+            });
+        });
+    </script>
+</body>
+</html>
