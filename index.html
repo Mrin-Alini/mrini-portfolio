@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-M">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My High School Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Quicksand Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom pastel colors for a cozy feel */
+        :root {
+            --pastel-blue: #B3E0F2; /* Light Blue */
+            --pastel-green: #D4F4DD; /* Mint Green */
+            --pastel-pink: #F8DDE4; /* Pale Pink */
+            --pastel-yellow: #FFFACD; /* Lemon Chiffon (body background) */
+            --pastel-purple: #E0CEF2; /* Lavender */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #FDFDFD; /* Still available but less used as main body bg */
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--pastel-yellow); /* Fixed body background */
+            color: var(--text-dark);
+            line-height: 1.6;
+            /* Removed transition as background is no longer dynamically changing */
+        }
+
+        .section-card {
+            background-color: white; /* Cards remain white for content clarity */
+            padding: 1.5rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+            margin-bottom: 2rem;
+        }
+
+        .header-bg {
+            background-color: var(--pastel-blue);
+        }
+
+        .nav-item {
+            cursor: pointer; /* Indicate clickable */
+        }
+
+        .nav-item:hover {
+            color: var(--pastel-purple);
+            text-decoration: underline;
+        }
+
+        .category-heading {
+            color: var(--text-dark); /* Changed from --pastel-purple to --text-dark (black) */
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Specific pastel backgrounds for sections */
+        #performing-arts-section {
+            background-color: var(--pastel-pink);
+        }
+        #sports-section {
+            background-color: var(--pastel-green);
+        }
+        #academics-section {
+            background-color: var(--pastel-purple);
+        }
+
+        /* Adjust padding for sections for a cozy feel */
+        .content-section {
+            padding: 4rem 1rem; /* Increased vertical padding */
+            transition: opacity 0.5s ease-in-out; /* Fade transition for sections */
+            /* Initially hidden by default unless it's the active one via JS */
+            display: none;
+            opacity: 0;
+            border-radius: 0.75rem; /* Added rounded corners to main sections */
+        }
+
+        .content-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .content-section {
+                padding: 6rem 2rem; /* More padding on larger screens */
+            }
+            .section-card {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-yellow-200 selection:text-gray-800">
+    <!-- Header Section -->
+    <header class="header-bg py-6 shadow-md">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-white text-3xl font-bold mb-4 md:mb-0">My High School Journey</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center gap-x-6 text-lg">
+                    <li><a href="#home" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="introduction-section">Home</a></li>
+                    <li><a href="#performing-arts" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="performing-arts-section">Performing Arts</a></li>
+                    <li><a href="#sports" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="sports-section">Sports</a></li>
+                    <li><a href="#academics" class="nav-item text-white hover:text-blue-700 transition duration-300 ease-in-out px-3 py-1 rounded-md" data-target="academics-section">Academics</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container for Dynamic Sections -->
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Introduction Section -->
+        <section id="introduction-section" class="bg-white section-card text-center mb-12 content-section active">
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-6">Welcome, Teachers!</h2>
+            <p class="text-xl text-gray-700 mb-4">
+                This portfolio is designed to give you a comprehensive overview of my activities, achievements, and passions throughout my high school years (so far)!
+            </p>
+            <p class="text-lg text-gray-600">
+                Please feel free to explore the different sections using the navigation bar above. Thank you for your support and guidance!
+            </p>
+        </section>
+
+        <!-- Performing Arts Section -->
+        <section id="performing-arts-section" class="rounded-lg shadow-xl py-12 content-section">
+            <div class="container mx-auto px-4">
+                <h2 class="category-heading">Performing Arts</h2>
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">BIS Choir Commitment & Candor Victory</h3>
+                    <p class="text-gray-700 mb-4">
+                        I continued my BIS choir commitment, practicing and representing the school at all organized events, including Candor where we won the best performance!
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">HS Music Band & MADD Fest Performances</h3>
+                    <p class="text-gray-700 mb-4">
+                        I set up my HS music band, and contributed to 4 music performances at the annual MADD fest, on both stages.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Xanadu Performance</h3>
+                    <p class="text-gray-700 mb-4">
+                        I represented the school at Xanadu.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Dance Activity & MADD Fest Performance</h3>
+                    <p class="text-gray-700 mb-4">
+                        I participated in dance activity, and was part of the dance performance at MADD fest.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Harrow-Lit Literature Festival & Poetry Slam</h3>
+                    <p class="text-gray-700 mb-4">
+                        I was selected to represent BIS at the Harrow-Lit literature festival, and volunteered for poetry slam later in the year.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Class Assembly Band Leader</h3>
+                    <p class="text-gray-700 mb-4">
+                        I led my class assembly band, though the performance got cancelled last minute.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Trinity Piano</h3>
+                    <p class="text-gray-700 mb-4">
+                        I continue to progress in Trinity Piano, currently preparing for grade 5.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Music Band Performances for Charity (WWF)</h3>
+                    <p class="text-gray-700 mb-4">
+                        I performed with a music band at local restaurants to raise funds for charities like WWF.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sports Section -->
+        <section id="sports-section" class="rounded-lg shadow-xl py-12 content-section">
+            <div class="container mx-auto px-4">
+                <h2 class="category-heading">Sports</h2>
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Inter-house Table Tennis Championship Winner</h3>
+                    <p class="text-gray-700 mb-4">
+                        I won the inter-house Table Tennis championship for my house.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">BAASC Table Tennis Tournament Runner-up</h3>
+                    <p class="text-gray-700 mb-4">
+                        I won runner-up trophy for BIS at the BAASC Table Tennis tournament.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">HS Soccer Team Member</h3>
+                    <p class="text-gray-700 mb-4">
+                        I was selected for the HS soccer team and was always there for the team, though I was barely put on the field, despite it being a significant time commitment.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academics Section -->
+        <section id="academics-section" class="rounded-lg shadow-xl py-12 content-section">
+            <div class="container mx-auto px-4">
+                <h2 class="category-heading">Academics</h2>
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">IB Collaborative Science Project (Arduino)</h3>
+                    <p class="text-gray-700 mb-4">
+                        My group was the only IB Collaborative Science Project working model where I used Arduino based code to run the mechanics. I was asked by the Physics HOD to retain the model for next year's tour by accreditation agencies.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Academic Excellence in 11th IB & IGCSE</h3>
+                    <p class="text-gray-700 mb-4">
+                        I entered 11th IB with straight A\* grades in IGCSE boards, and continued to excel in academics, despite guidance challenges in subjects like Economics.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">SAT Score: 1550 (First Attempt)</h3>
+                    <p class="text-gray-700 mb-4">
+                        I scored 1550 in my SAT in my first attempt taking it during this school year.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Advanced Placement Exams (AP CS-A & AP Biology)</h3>
+                    <p class="text-gray-700 mb-4">
+                        I additionally signed-up and took 2 of College-Board's Advanced Placement exams - AP CS-A and AP Biology - to increase the breadth of my academic coverage.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Independent In-silico Research on OVT Cancer Therapies (JEI Journal)</h3>
+                    <p class="text-gray-700 mb-4">
+                        I conducted independent in-silico research on OVT cancer therapies, my paper for which got accepted to the JEI Journal, the leading High School research journal in the US.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Environmental CAS Club Leader & Guest Workshop</h3>
+                    <p class="text-gray-700 mb-4">
+                        I conceptualized, created and led the environmental CAS club which was the largest amongst HS CAS. I not only did internal club activities, but also coordinated and conducted an external guest workshop for the broader HS student body.
+                    </p>
+                </div>
+
+                 <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">Student Body Election Participation</h3>
+                    <p class="text-gray-700 mb-4">
+                        I ran for president, participating positively in the student body elections process, and learned a lot even though I didn't win.
+                    </p>
+                </div>
+
+                <div class="section-card">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800">EFI Internship & Lake Cleanup Efforts</h3>
+                    <p class="text-gray-700 mb-4">
+                        I completed an internship with EFI (Environmentalist Foundation of India) where I participated and led lake cleanup efforts around Bangalore.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Mrini. All rights reserved.</p>
+            <p class="text-sm mt-2">
+                Designed to assist with Letters of Recommendation.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.content-section');
+            // Removed the mainBody reference and dynamic background color change
+
+            // Map navigation hash to section ID
+            const sectionMap = {
+                '#home': 'introduction-section',
+                '#performing-arts': 'performing-arts-section',
+                '#sports': 'sports-section',
+                '#academics': 'academics-section'
+            };
+
+            // Function to show a specific section
+            function showSection(sectionId) {
+                // Hide all sections first
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    // Removed dynamic body background color update here
+                }
+            }
+
+            // Event listeners for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default anchor link behavior
+                    const targetSectionId = link.getAttribute('data-target');
+                    if (targetSectionId) {
+                        history.pushState(null, '', link.getAttribute('href')); // Update URL hash
+                        showSection(targetSectionId);
+                    }
+                });
+            });
+
+            // Handle initial load based on URL hash
+            const initialHash = window.location.hash || '#home';
+            const initialSectionId = sectionMap[initialHash] || 'introduction-section';
+            showSection(initialSectionId);
+
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', () => {
+                const currentHash = window.location.hash || '#home';
+                const currentSectionId = sectionMap[currentHash] || 'introduction-section';
+                showSection(currentSectionId);
+            });
+        });
+    </script>
+</body>
+</html>
